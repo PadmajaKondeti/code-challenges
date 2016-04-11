@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+    <script src="jquery.js"></script>
+    <script src="fares.js"></script>
+    
+	<title>SEPTA Regional Rail Fare Calculator</title>
+    <style>
+		header {
+			background-color:black;
+			display:block;
+			overflow:hidden;
+			color:white;	
+		}
+		#mainHdr {
+		   float:center;
+		   clear: float;
+		   text-align:center;   
+		}
+		#mainHdr h1{
+		   width:80%;
+		  color:white;	
+		}
+		#mainHdr img{
+		 	float:left; 
+		   width:20%;
+		}
+		#frmDetails {
+			
+		   text-align: center;
+		   border: solid 1px #000000;
+		   }
+		#frmFare {	
+			border: solid 1px #000000;
+			margin: 30px;
+				
+		}
+		.styled-select select {
+			width: 80%;
+			border-radius: 5px;
+		}
+		
+		label {display: block;}
+		.error, .anytime {display:none;}
+		
+		footer {
+			background:#000000;
+			color:#fff;
+			padding-bottom:10px;
+		}
+    </style>
+</head>
+<body>
+<div id="frmDetails">
+
+    <header>
+    	<div id="mainHdr">
+            <img style=" width = 50px; height: 50px; " 
+            src = "https://upload.wikimedia.org/wikipedia/commons/c/ca/SEPTA.svg" />
+            <h1>Regional Rail Fares</h1>
+        </div>
+    </header>
+   
+    
+    <form id="frmFare" action="action_page.php">
+        <div class="styled-select">
+            <h2>Where are you going?</h2>
+            <select name="zones"  class="valchange">
+            </select>
+            <br><br>
+            <hr />
+        </div>
+        <div class="styled-select">
+            <h2>When are you riding?</h2>
+            <select name="riding" class="valchange">
+            </select>
+            <br><br>
+            <span style="color:#999999"> Helper text that explains the options above.</span>
+            <hr />
+        </div>
+        <div id="radio_select" >
+            <h2>Where will you purchase the fare?</h2>
+            
+            <label><input type="radio" name="fare" data-fare="advance_purchase" value="advance_purchase" class="valchange" checked > Station Kiosk</label>
+            <label><input type="radio" name="fare" data-fare="onboard_purchase" value="onboard_purchase" class="valchange" >Onboard</label>
+        
+        	<hr />
+        </div>
+        <div class="styled-select">
+            <h2>How many rides will you need?</h2>
+           <input type="text"  id="numRides" value="" class="valchange" /> 
+            <!-- <input type="text" name="numRides"  class="numbersOnly"> -->
+            <span class="error">Please enter Numeric value</span>
+           <!--  <span class="anytime">Please Enter 10, 20,30,40,50 value</span> -->
+        	<br><br>
+        </div>    
+    </form> 
+    
+    <footer>
+        <div class="styled-select">
+            <h2>Your fare will cost</h2>
+            <input  id="txtFare" type="text"  name="fareValue" value="ddd"  />
+        </div>
+    </footer>
+</div>
+</body>
+</html>
